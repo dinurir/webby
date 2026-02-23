@@ -5,7 +5,25 @@
     <title>Creative - Dinuri Rupasinghe</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+</script>
+
 <body>
+<div class="particles"></div>
+<div class="orbit-container">
+    <div class="orbit">
+        <div class="planet"></div>
+    </div>
+</div>
 
 <nav>
     <h1>Dinuri Rupasinghe</h1>
@@ -14,8 +32,8 @@
         <li><a href="about.html">About</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="modeling.html">Contact</a></li>
-        <li><a href="creative.html">Contact</a></li>
+        <li><a href="creative.html">Creating</a></li>
+        <li><a href="modeling.html">Modeling</a></li>
     </ul>
 </nav>
 
