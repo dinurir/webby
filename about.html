@@ -5,18 +5,6 @@
     <title>About - Dinuri Rupasinghe</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<script>
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-    }
-  });
-});
-
-document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
-</script>
-
 <body>
 <div class="particles"></div>
 <div class="orbit-container">
@@ -38,13 +26,23 @@ document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
 </nav>
 
 <section class="content">
-    <img src="assets/profile.jpg" class="profile-pic">
+    <img src="assets/pfp.jpeg" class="profile-pic">
     <h2>About Me</h2>
     <p>
         I'm a graduate student in Aeronautics & Astronautics @ MIT
         My interests include space sytstems, robotics, and art.
     </p>
 </section>
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+});
 
+document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+</script>
 </body>
 </html>

@@ -5,17 +5,6 @@
     <title>Creative - Dinuri Rupasinghe</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<script>
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-    }
-  });
-});
-
-document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
-</script>
 
 <body>
 <div class="particles"></div>
@@ -38,22 +27,55 @@ document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
 </nav>
 
 <section class="content">
-    <h2>Projects</h2>
+  <div class="writing-header">
+    <h2>Creating</h2>
+    <p class="writing-intro">
+      A curated collection of essays exploring systems, discipline, identity,
+      aesthetics, and the architecture of becoming.
+    </p>
+  </div>
 
-    <div class="card">
-        <h3>Zero Robotics</h3>
-        <p>A high school and middle school programming challenge that inspires students to pursue STEM and exposes them to important programming and robotics basics.</p>
+  <div class="writing-grid">
+
+    <div class="writing-card hidden">
+      <h3>On Becoming Precise</h3>
+      <p>
+        A reflection on discipline, constraint, and why precision is not rigidity —
+        but freedom.
+      </p>
+      <a href="writing/first.html">Read Essay →</a>
     </div>
 
-    <div class="card">
-        <h3>Autonomous RPO From a Systems POV</h3>
-        <p></p>
+    <div class="writing-card hidden">
+      <h3>Entropy & Identity</h3>
+      <p>
+        Systems theory applied to selfhood: how disorder, control, and adaptation
+        shape identity.
+      </p>
+      <a href="writing/entropy-identity.html">Read Essay →</a>
     </div>
-    <div class="card">
-        <h3>Wax Propulsion Controls Development</h3>
-        <p></p>
+
+    <div class="writing-card hidden">
+      <h3>The Aesthetics of Constraint</h3>
+      <p>
+        Why limitation is often the catalyst for creativity and clarity.
+      </p>
+      <a href="writing/aesthetics-constraint.html">Read Essay →</a>
     </div>
+
+  </div>
 </section>
 
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+</script>
 </body>
 </html>

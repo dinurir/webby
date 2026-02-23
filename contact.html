@@ -5,17 +5,6 @@
     <title>Contact - Dinuri Rupasinghe</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<script>
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-    }
-  });
-});
-
-document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
-</script>
 
 <body>
 <div class="particles"></div>
@@ -43,6 +32,16 @@ document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
     <p>GitHub: github.com/dinurir</p>
     <p>LinkedIn: linkedin.com/in/dinuri-rupasinghe</p>
 </section>
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+});
 
+document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+</script>
 </body>
 </html>

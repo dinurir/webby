@@ -5,18 +5,6 @@
     <title>Projects - Dinuri Rupasinghe</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<script>
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-    }
-  });
-});
-
-document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
-</script>
-
 <body>
 <div class="particles"></div>
 <div class="orbit-container">
@@ -52,7 +40,33 @@ document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
         <h3>Wax Propulsion Controls Development</h3>
         <p></p>
     </div>
-</section>
+    <h2>Internships</h2>
 
+    <div class="card">
+        <h3>NASA JPL Guidance & Control</h3>
+        <p></p>
+
+    </div>
+
+    <div class="card">
+        <h3>Draper</h3>
+        <p></p>
+    </div>
+    <div class="card">
+        <h3>Boeing Commercial Airplanes Autoflight</h3>
+        <p></p>
+    </div>
+</section>
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+</script>
 </body>
 </html>

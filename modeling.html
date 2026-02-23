@@ -1,59 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Modeling - Dinuri Rupasinghe</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Modeling - Dinuri Rupasinghe</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-<script>
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-    }
-  });
-});
-
-document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
-</script>
 
 <body>
-<div class="particles"></div>
-<div class="orbit-container">
-    <div class="orbit">
-        <div class="planet"></div>
-    </div>
-</div>
+  <div class="particles"></div>
 
-<nav>
+  <div class="orbit-container">
+    <div class="orbit">
+      <div class="planet"></div>
+    </div>
+  </div>
+
+  <nav>
     <h1>Dinuri Rupasinghe</h1>
     <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="creative.html">Creating</a></li>
-        <li><a href="modeling.html">Modeling</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="creative.html">Creating</a></li>
+      <li><a href="modeling.html">Modeling</a></li>
     </ul>
-</nav>
+  </nav>
 
-<section class="content">
-    <h2>Projects</h2>
+  <section class="content">
+    <div class="modeling-header">
+      <h2>Modeling</h2>
+      <p class="modeling-subtitle">Selected work + digitals. Click any photo to view full-size.</p>
 
-    <div class="card">
-        <h3>Zero Robotics</h3>
-        <p>A high school and middle school programming challenge that inspires students to pursue STEM and exposes them to important programming and robotics basics.</p>
+      <!-- Optional: add your stats / agency info -->
+      <div class="modeling-stats">
+        <div class="stat"><span>Height</span><strong>5'5"</strong></div>
+        <div class="stat"><span>Location</span><strong>Boston, MA</strong></div>
+        <div class="stat"><span>Contact</span><strong>dinurir@mit.edu</strong></div>
+      </div>
     </div>
 
-    <div class="card">
-        <h3>Autonomous RPO From a Systems POV</h3>
-        <p></p>
-    </div>
-    <div class="card">
-        <h3>Wax Propulsion Controls Development</h3>
-        <p></p>
-    </div>
-</section>
+    <!-- Instagram-style wall -->
+    <div class="model-grid">
+      <!-- Replace src with your actual image paths, e.g. assets/modeling/01.jpg -->
+      <button class="model-tile hidden" data-full="assets/modeling/01.jpg" aria-label="Open photo 1">
+        <img src="assets/modeling/01.jpg" alt="Modeling photo 1">
+      </button>
 
+      <button class="model-tile hidden" data-full="assets/modeling/02.jpg" aria-label="Open photo 2">
+        <img src="assets/modeling/02.jpg" alt="Modeling photo 2">
+      </button>
+
+      <button class="model-tile hidden" data-full="assets/modeling/03.jpg" aria-label="Open photo 3">
+        <img src="assets/modeling/03.jpg" alt="Modeling photo 3">
+      </button>
+
+      <button class="model-tile hidden" data-full="assets/modeling/04.jpg" aria-label="Open photo 4">
+        <img src="assets/modeling/04.jpg" alt="Modeling photo 4">
+      </button>
+
+      <button class="model-tile hidden" data-full="assets/modeling/05.jpg" aria-label="Open photo 5">
+        <img src="assets/modeling/05.jpg" alt="Modeling photo 5">
+      </button>
+
+      <button class="model-tile hidden" data-full="assets/modeling/06.jpg" aria-label="Open photo 6">
+        <img src="assets/modeling/06.jpg" alt="Modeling photo 6">
+      </button>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop" data-close="true"></div>
+    <div class="lightbox-content" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+      <img id="lightboxImg" src="" alt="Expanded modeling photo">
+    </div>
+  </div>
+
+  <!-- Scripts at the end so elements exist -->
+  <script>
+    // Scroll-trigger animations
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("show");
+      });
+    });
+    document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+
+    // Lightbox
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const closeBtn = document.getElementById("lightboxClose");
+
+    function openLightbox(src) {
+      lightboxImg.src = src;
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll(".model-tile").forEach(tile => {
+      tile.addEventListener("click", () => openLightbox(tile.dataset.full));
+    });
+
+    closeBtn.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (e) => {
+      if (e.target.dataset.close === "true") closeLightbox();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lightbox.classList.contains("open")) closeLightbox();
+    });
+  </script>
 </body>
 </html>

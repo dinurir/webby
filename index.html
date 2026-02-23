@@ -6,17 +6,6 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-<script>
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-    }
-  });
-});
-
-document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
-</script>
 
 <body>
 <div class="particles"></div>
@@ -40,9 +29,19 @@ document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
 
     <section class="hero">
         <h2>Space Systems Engineering | Systems Thinking | Art & Engineering for a Better World</h2>
-        <p>Welcome to my personal website hoes.</p>
+        <p>Welcome to my personal website. I invite you to connect, collaborate, and learn with me.</p>
         <a class="button" href="projects.html">View My Work</a>
     </section>
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+});
 
+document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
